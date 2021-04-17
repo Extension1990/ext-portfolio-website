@@ -1,0 +1,208 @@
+.navbar {
+    transition: 0.5s ease-in;
+    // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding-left: 250px;
+    padding-right: 250px;
+    .collapse {
+        color: whitesmoke;
+        a {
+            color: #c0af00;
+            border: 1px solid transparent;
+        }
+        ul {
+            li {
+                a:hover {
+                    color: #c0af00;
+                    border: 1px solid #c0af00;
+                }
+                .nav-link.active {
+                    color: #ececec;
+                    border: 1px solid #ececec;
+                }
+            }
+        }
+    }
+    .navbar-brand {
+        display: inline-flex;
+        font-weight: bold;
+        // font-size: 50px;
+        color: #c0af00 !important;
+    }
+}
+.navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: whitesmoke;
+    margin-left: 180px;
+    .navbar-toggler-icon {
+        color: whitesmoke;
+    }
+}
+.navbar-toggler:focus {
+    outline: none;
+}
+@media screen and (max-width: 992px) {
+    .collapse {
+        max-width: 100%;
+    }
+    .navbar {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .inner-container {
+        max-width: 100%;
+    }
+    .inner-container-2 {
+        max-width: 100%;
+    }
+}
+.bg-dark {
+    background: transparent !important;
+    transition: 0.75s ease;
+}
+.bg-dark,.scrolled {
+    background: rgb(0, 0, 0) !important;
+    color: #233068 !important;
+}
+.values {
+    padding: 50px;
+    padding-bottom: 10px;
+}
+.note {
+    color: #646776;
+}
+.logo {
+    color: #c0af00;
+}
+.welcome {
+    color: #c0af00;
+    font-weight: 500;
+}
+.welcome-2 {
+    color: #6e6611;
+    font-weight: 500;
+}
+.container {
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+    // background: linear-gradient(rgb(161, 161, 161), rgb(19, 19, 19));
+    // opacity: 0.6;
+}
+.inner-container {
+    max-width: 70%;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 2px 5px -1px, rgba(189, 189, 189, 0.3) 0px 1px 3px -1px;
+}
+.inner-container-2 {
+    max-width: 70%;
+    padding: 20px;
+    // background-color: rgb(6, 51, 109);
+}
+.container-2 {
+    background: transparent;
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+    color: rgb(0, 0, 0);
+}
+.parallax {
+    min-height: 400px;
+    background: transparent;
+}
+.card-2 {
+    background: transparent;
+    border: none;
+    color: whitesmoke;
+}
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
+.card {
+    background: rgb(255, 255, 255);
+    color: rgb(6, 51, 109);
+    border: none;
+    border-top: 2px solid rgb(6, 51, 109);
+    border-radius: 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    cursor: pointer;
+    height: 350px;
+}
+.card:hover {
+    background: rgb(6, 51, 109);
+    border-top: 2px solid #c0af00;
+    color: white;
+    margin-top: -10px;
+    transition: ease-in-out .5s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+h5 {
+    color: #c0af00;
+}
+hr {
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+.img {
+    height: 550px;
+    width: 100%;
+}
+.text {
+    margin: 80px auto;
+}
+.biz {
+    color: #6e6611;
+}
+.intro {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.note {
+    font-size: 50px;
+    font-weight: bold;
+    border: none !important;
+}
+.class {
+    background: rgb(41, 41, 41);
+}
+.form {
+    height: 400px;
+    background: rgb(65, 65, 65);
+    .form-group {
+        .form-control {
+            border: none;
+            background: darkgray;
+        }
+        .form-control:focus {
+            outline: none;
+        }
+    }
+}
+.send {
+    margin-top: 50% auto;
+    background: #f37752;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: none;
+    display: block;
+    width: 100%;
+    color: black !important;
+}
+.footer {
+    color: rgb(80, 80, 80);
+    fa-icon {
+        color: rgb(129, 17, 17);
+    }
+}

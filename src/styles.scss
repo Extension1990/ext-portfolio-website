@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+body {
+  background-color: #ffffff;
+  overflow: auto;
+  color: rgb(0, 0, 0);
+  padding-bottom: 0;
+}
+.text-poppy-red {
+  color: #ef5350 !important;
+}
+.btn-poppy-red {
+  background-color: #ef5350 !important;
+}
+.bg-poppy-red {
+  background-color: #ef5350 !important;
+}
+@media screen and (max-width: 992px) {
+  .container-2 {
+      max-width: 100%;
+  }
+}
