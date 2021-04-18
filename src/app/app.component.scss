@@ -131,18 +131,25 @@
     border: none;
     border-top: 2px solid rgb(6, 51, 109);
     border-radius: 0;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    // box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
     cursor: pointer;
-    height: 350px;
+    height: 400px;
     transform: scale(1.05);
+    
 }
 .card:hover {
-    background: rgb(6, 51, 109);
+    background: rgb(0, 0, 0);
     border-top: 2px solid #c0af00;
     color: white;
     margin-top: -10px;
     transition: ease-in-out .5s;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+h5 {
+    color: #c0af00;
+    b {
+        color: #ccc;
+    }
 }
 .card-2 {
     background: rgb(255, 255, 255);
@@ -162,9 +169,6 @@
     margin-top: -10px;
     transition: ease-in-out .5s;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-}
-h5 {
-    color: #c0af00;
 }
 hr {
     height: 1px;
@@ -196,15 +200,15 @@ ul {
     border: none !important;
 }
 .class {
-    background: rgb(41, 41, 41);
+    background: rgb(0, 0, 0);
 }
 .form {
     height: 400px;
-    background: rgb(65, 65, 65);
+    background: rgb(15, 15, 15);
     .form-group {
         .form-control {
-            border: none;
-            background: darkgray;
+            border: 1 px solid white;
+            background: rgb(15, 15, 15);
         }
         .form-control:focus {
             outline: none;
@@ -213,12 +217,12 @@ ul {
 }
 .send {
     margin-top: 50% auto;
-    background: rgb(0, 0, 0);
+    background: #c0af00;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border: none;
     display: block;
     width: 100%;
-    color: rgb(243, 243, 243) !important;
+    color: rgb(0, 0, 0) !important;
 }
 .footer {
     color: rgb(80, 80, 80);
@@ -237,7 +241,7 @@ ul {
   }
   
   .container_foto {
-    background-color: rgba(57, 62, 93, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 0;
     overflow: hidden;
     max-width: 350px;
@@ -272,7 +276,7 @@ ul {
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.5;
     -webkit-transition: all 4s ease;
     -moz-transition: all 4s ease;
     -o-transition: all 4s ease;
@@ -282,9 +286,10 @@ ul {
   
   .ver_mas {
     background-color: #c0af00;
+    color: black;
     position: absolute;
     width: 100%;
-    height: 70px;
+    height: 90px;
     bottom: 0;
     z-index: 1;
     opacity: 0;
@@ -298,6 +303,9 @@ ul {
     -o-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    .more {
+        font-size: 12px;
+    }
   }
   
   .ver_mas span {
@@ -336,4 +344,17 @@ ul {
     -o-transform: translate(0px, 0px);
     -ms-transform: translate(0px, 0px);
     opacity: 1;
+  }
+
+  /** Experience **/
+  .company {
+      .card-body {
+        text-align: left;
+        p {
+            font-size: 14px;
+        }
+        .date {
+            font-size: 12px;
+        }
+      }
   }
