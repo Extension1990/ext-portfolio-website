@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mdb-angular-free": {
+    "ext-portfolio-website": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mdb-angular-free",
+            "outputPath": "dist/ext-portfolio-website",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -77,18 +77,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mdb-angular-free:build"
+            "browserTarget": "ext-portfolio-website:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mdb-angular-free:build:production"
+              "browserTarget": "ext-portfolio-website:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mdb-angular-free:build"
+            "browserTarget": "ext-portfolio-website:build"
           }
         },
         "test": {
@@ -127,16 +127,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "mdb-angular-free:serve"
+            "devServerTarget": "ext-portfolio-website:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "mdb-angular-free:serve:production"
+              "devServerTarget": "ext-portfolio-website:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "mdb-angular-free"
+  "defaultProject": "ext-portfolio-website"
 }
