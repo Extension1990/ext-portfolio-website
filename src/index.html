@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Portfolio</title>
+  <title>Extension</title>
   <base href="/">
+  <base href="https://ext-portfolio-website.firebaseapp.com/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
@@ -48,6 +49,12 @@
   <script src="./assets/js/smooth-scroll.js"></script>
   <script>
     var scroll = new SmoothScroll('a[href*="#"]');
+  </script>
+  <script type="text/javascript" src="https://ext-portfolio-website.firebaseapp.com/runtime.a66f828dca56eeb90e02.js"></script>
+  <script>
+    $('.navbar-nav>li>a').on('click', function() {
+      $('.navbar-collapse').collapse('hide');
+    });
   </script>
 </body>
 </html>

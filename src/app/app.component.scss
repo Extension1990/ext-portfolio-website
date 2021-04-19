@@ -37,7 +37,7 @@
     border: 1px solid transparent;
     border-radius: 0.25rem;
     color: whitesmoke;
-    margin-left: 180px;
+    margin-left: 205px;
     .navbar-toggler-icon {
         color: whitesmoke;
     }
@@ -45,21 +45,7 @@
 .navbar-toggler:focus {
     outline: none;
 }
-@media screen and (max-width: 992px) {
-    .collapse {
-        max-width: 100%;
-    }
-    .navbar {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-    .inner-container {
-        max-width: 100%;
-    }
-    .inner-container-2 {
-        max-width: 100%;
-    }
-}
+
 .bg-dark {
     background: transparent !important;
     transition: 0.75s ease;
@@ -366,3 +352,36 @@ ul {
       padding: 10px;
       cursor: pointer;
   }
+
+  @media only screen and (max-width: 992px) {
+    .collapse {
+        max-width: 100%;
+        padding: 20px;
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+    .navbar {
+        background: black;
+        opacity: 0.9;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .inner-container {
+        max-width: 100% !important;
+    }
+    .inner-container-2 {
+        max-width: 100% !important;
+        padding: 0px !important;
+    }
+    .intro {
+        margin: 5px !important;
+    }
+    .company {
+        margin: 0px !important;
+    }
+}
