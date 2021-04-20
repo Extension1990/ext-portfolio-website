@@ -1,55 +1,83 @@
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+
+const CLIENT_ID = '1093868991042-0bb5dkbe69bcl7q5m1vcsmuc7p802l22.apps.googleusercontent.com';
+const CLIENT_SECRET = 'GX3O4rtMgbHzlCKsPnQ_K1fU';
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+const REFRESH_TOKEN = '1//04S5kdpIYxSuDCgYIARAAGAQSNwF-L9IrRDQ3dIAIPd6NSGxoab1oMZGZTH448sOWcSuv9Z3-HvPvS34V6Uai_k1_5e4wQeX04Tk';
+
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 const details = require("./details.json");
 
 const app = express();
 app.use(cors({ origin: "*" }));
-
-app.listen(3000, () => {
-  console.log("The server started on port 3000 !!!!!!");
-});
-
-app.get("/", (req, res) => {
-  res.send(
-    "<h1 style='text-align: center'>Wellcome to FunOfHeuristic <br><br>😃👻😃👻😃👻😃👻😃</h1>"
-  );
-});
-
-app.post("/sendmail", (req, res) => {
-  console.log("request came");
-  let user = req.body;
-  sendMail(user, info => {
-    console.log(`The mail has beed send 😃 and the id is ${info.messageId}`);
-    res.send(info);
-  });
-});
-
-async function sendMail(user, callback) {
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: details.email,
-      pass: details.password
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    if (req.method === "OPTIONS") {
+        res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+        return res.status(200).json({});
     }
-  });
+    next();
+});
 
-  let mailOptions = {
-    from: '"Fun Of Heuristic"<example.gimail.com>', // sender address
-    to: 'extensiontlhareseng@gmail.com', // list of receivers
-    subject: "Wellcome to Fun Of Heuristic 👻", // Subject line
-    html: `<h1>Hi ${user.name}</h1><br>
-    <h4>Thanks for joining us</h4>`
-  };
 
-  // send mail with defined transport object
-  let info = await transporter.sendMail(mailOptions);
+app.post('/sendmail/', (req, res) => {
+    console.log('Email request has come...');
+    // let user = {
+    //     name: req.body.name,
+    //     email: req.body.email,
+    //     message: req.body.message
+    // };
+    let user = req.body;
 
-  callback(info);
+    console.log(user);
+    sendMail(user => {
+        console.log(`The email has been sent from user`);
+        res.send(user);
+        console.log(user);
+    });
+});
+
+async function sendMail(user) {
+    try {
+        const accessToken = await oAuth2Client.getAccessToken();
+
+        const transport = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                type: 'OAuth2',
+                user: 'extensiontlhareseng@gmail.com',
+                clientId: CLIENT_ID,
+                clientSecret: CLIENT_SECRET,
+                refreshToken: REFRESH_TOKEN,
+                accessToken: accessToken
+            }
+        });
+
+        const mailOptions = {
+            from: `${user.name} <mogomotsikoki@gmail.com>`,
+            to: 'extensiontlhareseng@gmail.com',
+            Subject: 'Hello Extension',
+            text: 'I would like to discuss apotential partnership with you.',
+            html: '<h3>I would like to discuss apotential partnership with you.</h3>'
+        }
+
+        const result = await transport.sendMail(mailOptions);
+        return result;
+
+    } catch (error) {
+        return error;
+    }
 }
 
-// main().catch(console.error);
+app.listen(3000, () => {
+    console.log("The server started on port 3000 !!!!!!");
+});
