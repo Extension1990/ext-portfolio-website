@@ -15,7 +15,8 @@ body {
   background-color: #ffffff;
   overflow: auto;
   color: rgb(0, 0, 0);
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 .text-poppy-red {
   color: #ef5350 !important;

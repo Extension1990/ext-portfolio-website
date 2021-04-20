@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Email sender server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "nodemailer": "^5.1.1",
+    "nodemon": "^2.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Extension1990/ext-portfolio-website.git"
+  },
+  "author": "Extension1990",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Extension1990/ext-portfolio-website/issues"
+  },
+  "homepage": "https://github.com/Extension1990/ext-portfolio-website#readme"
+}
