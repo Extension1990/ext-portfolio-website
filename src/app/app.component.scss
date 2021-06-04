@@ -94,7 +94,6 @@ nav .navbar-nav li a{
 .inner-container-2 {
     max-width: 70%;
     padding: 20px;
-    // background-color: rgb(6, 51, 109);
 }
 .container-2 {
     background: transparent;
@@ -189,9 +188,6 @@ ul {
     font-size: 50px;
     font-weight: bold;
     border: none !important;
-}
-.class {
-    background: rgb(0, 0, 0);
 }
 .form {
     height: 400px;
@@ -397,5 +393,38 @@ ul {
     }
     .company {
         margin: 0px !important;
+    }
+}
+
+.class-2 {
+    background: rgb(0, 0, 0);
+    margin: auto;
+    text-align: center;
+    color: #c0af00;
+    height: 100%;
+    padding: 0;
+    margin: auto;
+}
+.class {
+    background: rgb(233, 233, 233);
+    margin: auto;
+    text-align: center;
+    color: #464646;
+    height: 100%;
+    padding: 10px;
+    margin: auto;
+}
+.cont {
+    color: #c0af00;
+    height: 100%;
+    text-align: center;
+}
+.inner-container-3 {
+    max-width: 100%;
+    padding: 20px;
+    .container-3 {
+        max-width: 70%;
+        margin: auto;
+        text-align: center;
     }
 }

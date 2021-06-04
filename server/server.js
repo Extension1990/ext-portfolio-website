@@ -1,8 +1,14 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+var cors = require('cors');
+
+// Send email using nodemailer
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 
+// Googleapis Credentials
 const CLIENT_ID = '1093868991042-0bb5dkbe69bcl7q5m1vcsmuc7p802l22.apps.googleusercontent.com';
 const CLIENT_SECRET = 'GX3O4rtMgbHzlCKsPnQ_K1fU';
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
@@ -12,8 +18,10 @@ const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_U
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 const details = require("./details.json");
+const { response } = require("express");
 
 const app = express();
+const config = require('./config');
 app.use(cors({ origin: "*" }));
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,21 +36,34 @@ app.use((req, res, next) => {
     next();
 });
 
+// Middleware
+app.use(morgan("dev"));
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(express.static('uploads'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
+
+// Connect to mongodb database
+mongoose.connect(config.dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connection.on('connected', () => {
+    console.log('MongoDB connected successfully.');
+});
+mongoose.connection.on('error', error => {
+    console.log('MongoDB connection error.' + error);
+});
+
+// Send an email
 app.post('/sendmail/', (req, res) => {
     console.log('Email request has come...');
-    // let user = {
-    //     name: req.body.name,
-    //     email: req.body.email,
-    //     message: req.body.message
-    // };
     let user = req.body;
 
-    console.log(user);
-    sendMail(user => {
-        console.log(`The email has been sent from user`);
-        res.send(user);
+    // console.log(user);
+    sendMail((user) => {
         console.log(user);
+        console.log(`The email has been sent from user`);
+        res.send(response);
     });
 });
 
@@ -71,6 +92,8 @@ async function sendMail(user) {
         }
 
         const result = await transport.sendMail(mailOptions);
+        console.log(result);
+        res.status(201).send(result);
         return result;
 
     } catch (error) {
