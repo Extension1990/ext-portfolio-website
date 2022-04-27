@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "homepage" : "https://ext-portfolio-website.web.app"
+    "homepage": "https://ext-portfolio-website.web.app"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +38,6 @@
     "rxjs": "~6.5.4",
     "simple-scrollspy": "^2.1.0",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.7",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -61,7 +60,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "^4.0.7"
+    "typescript": "^4.0.5"
   },
   "engines": {
     "node": "14.9.0",
